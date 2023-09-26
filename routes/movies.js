@@ -42,6 +42,7 @@ router.post('/movies-add', upload.single('imageUrl'), async(req, res) => {
     // console.log(req.originalUrl)
     const {title, year, duration} = req.body;
     const imageFileName = req.file ? req.file.filename : null;
+
     // console.log(req.body)
     // console.log(imageFileName)
     // console.log(req)
@@ -51,7 +52,7 @@ router.post('/movies-add', upload.single('imageUrl'), async(req, res) => {
         title,
         year,
         duration,
-        imageUrl: imageFileName
+        imageUrl: `/uploads/${imageFileName}`
     })
 
     try {
