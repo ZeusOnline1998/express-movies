@@ -67,10 +67,19 @@ router.post('/movies-add', upload.single('imageUrl'), async(req, res) => {
 router.get('/movie/:id', async(req, res) => {
     try {
         const movie = await Movies.findById(req.params.id)
-        console.log(movie)
+        // console.log(movie)
         res.render('movie', {movie})
     } catch (error) {
         res.render('movies-list')
+    }
+})
+
+router.get('/delete-movie/:id', async(req, res ) => {
+    try {
+        const deletedMovie = await Movies.findByIdAndDelete(req.params.id)
+        res.redirect('/movies-list')
+    } catch (error) {
+        res.redirect('/movies-list')
     }
 })
 

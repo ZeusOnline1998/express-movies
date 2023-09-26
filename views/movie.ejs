@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Movie - <%= movie.title%></title>
 </head>
 <body>
     <div>
@@ -11,6 +11,7 @@
         <div><%= movie.year%></div>
         <div><%= movie.duration%></div>
         <img src="<%= movie.imageUrl%>" alt="" width="200px">
+        <a href="/delete-movie/<%= movie._id%>">Delete Movie</a>
     </div>
 </body>
 </html>
